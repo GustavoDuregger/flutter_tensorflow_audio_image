@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tensorflow_audio/common/ui/constants/styles.dart';
 import 'package:flutter_tensorflow_audio/common/ui/constants/texts.dart';
+import 'package:flutter_tensorflow_audio/features/audio_mic/presentation/pages/audio_mic_page.dart';
 import 'package:flutter_tensorflow_audio/features/image_camera/presentation/pages/image_camera_page.dart';
 import 'package:lottie/lottie.dart';
 
@@ -56,9 +57,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => ImageCameraPage(
-                          widget.cameras,
-                        )),
+                    builder: (context) =>  AudioMicPage()),
               ),
               child: const Text(UiText.audioRecognize),
             ),

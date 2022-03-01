@@ -17,44 +17,50 @@ Widget cardDetectorWidget(
                 children: [
                   Expanded(
                     flex: 4,
-                    child: Text(
-                      firstObject,
-                      style: const TextStyle(
-                          color: PalletColors.whiteColor,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18.0),
+                    child: Visibility(
+                      visible: firstObject == "Resultado" ? false : true,
+                      child: Text(
+                        firstObject,
+                        style: const TextStyle(
+                            color: PalletColors.whiteColor,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18.0),
+                      ),
                     ),
                   ),
                   const SizedBox(
                     width: 16.0,
                   ),
-                  Expanded(
-                    flex: 8,
-                    child: SizedBox(
-                      height: 32.0,
-                      child: Stack(
-                        children: [
-                          LinearProgressIndicator(
-                            valueColor: const AlwaysStoppedAnimation<Color>(
-                                PalletColors.redColor),
-                            value: index == 0 ? confidence : 0.0,
-                            backgroundColor: PalletColors.whiteColor.withOpacity(0.2),
-                            minHeight: 50.0,
+                  Visibility(
+                      visible: firstObject == "Resultado" ? false : true,
+                      child: Expanded(
+                        flex: 8,
+                        child: SizedBox(
+                          height: 32.0,
+                          child: Stack(
+                            children: [
+                              LinearProgressIndicator(
+                                valueColor: const AlwaysStoppedAnimation<Color>(
+                                    PalletColors.redColor),
+                                value: index == 0 ? confidence : 0.0,
+                                backgroundColor:
+                                    PalletColors.whiteColor.withOpacity(0.2),
+                                minHeight: 50.0,
+                              ),
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  '${index == 0 ? (confidence * 100).toStringAsFixed(0) : 0} % ',
+                                  style: const TextStyle(
+                                      color: PalletColors.blackColor,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20.0),
+                                ),
+                              ),
+                            ],
                           ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              '${index == 0 ? (confidence * 100).toStringAsFixed(0) : 0} % ',
-                              style: const TextStyle(
-                                  color: PalletColors.blackColor,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20.0),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
+                        ),
+                      ))
                 ],
               ),
               const SizedBox(
@@ -82,10 +88,11 @@ Widget cardDetectorWidget(
                       child: Stack(
                         children: [
                           LinearProgressIndicator(
-                            valueColor: const AlwaysStoppedAnimation<Color>(
-                                PalletColors.yellowColor),
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                firstObject == "Resultado" ? PalletColors.whiteColor: PalletColors.yellowColor),
                             value: index == 1 ? confidence : 0.0,
-                            backgroundColor: PalletColors.whiteColor.withOpacity(0.2),
+                            backgroundColor:
+                                PalletColors.whiteColor.withOpacity(0.2),
                             minHeight: 50.0,
                           ),
                           Align(

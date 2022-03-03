@@ -33,19 +33,19 @@ class _AudioMicPageState extends State<AudioMicPage> {
       model: model,
       label: label,
       isAsset: true,
-      numThreads: 4,
+      numThreads: 1,
     );
   }
 
   void getResult() {
     result = TfliteAudio.startAudioRecognition(
       sampleRate: 44100,
-      bufferSize: 1000, //verificar
-      numOfInferences: 10,
-      detectionThreshold: 0.5, //diminuir?
-      averageWindowDuration: 3000,
-      minimumTimeBetweenSamples: 50,
-      suppressionTime: 2000,
+      bufferSize: 22016,
+      numOfInferences: 5,
+      detectionThreshold: 0.3,
+     // averageWindowDuration: 3000,
+      //minimumTimeBetweenSamples: 50,
+     // suppressionTime: 2000,
     );
 
     // Os eventos disponiveis são:

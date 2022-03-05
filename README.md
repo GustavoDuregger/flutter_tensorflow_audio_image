@@ -1,5 +1,5 @@
 # Classificação de imagens e áudios no flutter utilizando TensorFlow
-> Artigo completo no Medium: 
+> Artigo completo no Medium: https://medium.com/suamusicatech/classificando-%C3%A1udios-com-i-a-em-seu-app-flutter-tensorflow-e-teachable-machine-9bee97cfd16e
 
 ## Screenshots
 <p align = "center">
